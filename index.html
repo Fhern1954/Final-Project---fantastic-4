@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+  <title>Movies Database</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+  <style>
+    .well-sm {
+      padding: 19px;
+      height: 80px;
+      width: 555px
+    }
+
+    .well {
+      padding: 19px
+    }
+
+    table {
+      border:thin;
+      color:black;
+    }
+
+    th {
+      /*...all th attributes like padding etc*/
+      background-color:#d4e3e5;
+      padding: 8px;
+      
+    }
+
+    tr {height:15px;
+    }
+
+    td{
+      width: 80px;
+      font-size: 8px;
+    }
+
+    th{
+      width: 80px;
+      font-size: 12px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Movies Dashboard</h1>
+        <p>Use the interactive charts below to explore the dataset</p>
+      </div>
+    </div> -->
+    <!-- Background image -->
+  <div
+  class="p-5 text-center"
+  style="
+    background-image: url('icecream1.jpg');
+    height: 100px;
+    ">
+  <div class="mask" style="background-color: rgba(245, 242, 238, 0.6);">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+
+        <h1 class="mb-3">Ice Cream Recipe: Create Your Own!</h1>
+             
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Background image -->
+<div class='row'>
+  <h4 class='p-5 text-left'>   Pick Your Selection</h4>
+</div>
+
+<div class="row">
+      <!-- <div class="col-md-4">
+        <div class="well well-sm">
+          <h5>Countries</h5>
+          <p style="font-family:Arial, Helvetica, sans-serif;font-size:14px"></p>
+          <select id="selcountryDataset" onchange="optionChanged('country', this.value)"></select>
+          <p style="font-family:Arial, Helvetica, sans-serif;font-size:14px">
+        </div>
+      </div> -->
+      <!-- <div class="col-md-2">
+        <div class="well well-sm">
+          <h5>Genre</h5>
+          <p style="font-family:Arial, Helvetica, sans-serif;font-size:14px">
+            <select id="selgenreDataset" onchange="optionChanged('genre', this.value)"></select>
+          </p>
+        </div>
+      </div> -->
+      <!-- <div class="col-md-6">
+        <div class="well well-sm">
+          <h5>Year Range:</h5>
+          <p style="font-family:Arial, Helvetica, sans-serif;font-size:14px">
+            Start:
+            <select id="selstartyearDataset" onchange="optionChanged('startyear', this.value)"></select>
+            End:
+            <select id="selendyearDataset" onchange="optionChanged('endyear', this.value)"></select>
+          </p>
+
+        </div>
+      </div> -->
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div id="table-area" class="">
+          <table id="movie-table" class="table table-striped">
+            <!-- <caption style="font-weight: bold;font-family:Arial">Top 10 Movies</caption> -->
+                
+            <thead>
+              <tr>                
+                <th class="table-head">Dairy</th>
+                <th class="table-head">Basics</th>
+                <th class="table-head">Flavor</th>
+                <th class="table-head">Toppings</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-6">
+
+        <div>
+          <img src="data/ingredients_frequency.png" width="600" height="800">
+
+        </div>
+         
+
+        <div id="bar"></div>
+      </div>
+    </div>
+    
+
+  </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+  <!-- <script src="config.js"></script> -->
+  <!-- <script src="map.js"></script> -->
+  <script src="data.js"></script>
+  <!-- <script src="./static/js/bonus.js"></script> -->
+  <!-- <script src="samples.json"></script> -->
+
+</body>
+
+</html>
