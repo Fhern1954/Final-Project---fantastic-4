@@ -104,22 +104,23 @@ def ingredients():
     return jsonify(ingredients)          
     # return render_template("index.html", ingredients=ingredients)
 
-@app.route("/ingredient_count")
-def ingredients_count():
-    import csv
-    with open('data/finalingredients.csv') as csv_file:
-        data = csv.reader(csv_file, delimiter=',')
-        first_line = True
-        ingredient_count = []
-        for row in data:
-            if not first_line:
-                ingredient_count.append({
-                "ingredients": row[0],
-                "count": row[1] 
-                })
-            else:
-                first_line = False
-    return jsonify(ingredient_count) 
+@app.route("/model")
+# @app.route("/ingredient_count")
+# def ingredients_count():
+#     import csv
+#     with open('data/finalingredients.csv') as csv_file:
+#         data = csv.reader(csv_file, delimiter=',')
+#         first_line = True
+#         ingredient_count = []
+#         for row in data:
+#             if not first_line:
+#                 ingredient_count.append({
+#                 "ingredients": row[0],
+#                 "count": row[1] 
+#                 })
+#             else:
+#                 first_line = False
+#     return jsonify(ingredient_count) 
 
 # @app.route("/top_movies_graph")
 # def countries_graph_top10():

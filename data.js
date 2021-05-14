@@ -17,20 +17,35 @@ function buildingredienttable() {
 
         tbody.html("");
 
-        var chkbox = document.createElement('input');
-        chkbox.type = "checkbox";
-        chkbox.id = "chk" ;
-        chkbox.name = "chk" ;
+        
 
         data.forEach(item => {
             var row = tbody.append("tr");
             Object.entries(item).forEach(([key, value]) => {
-                
                 var cell = row.append("td");
+                if (value) {
+                    
+                
+                   
+                // var chkbox = document.createElement('input');
+                // chkbox.type = "checkbox";
+                // chkbox.value = value;
+                // chkbox.id = "chk" ;
+                // chkbox.name = "chk" ;
+                    var chkbox = cell.append("input");
+                    chkbox.attr("value", value);
+                    chkbox.attr("type", "checkbox");
+                    chkbox.attr("id", value);
+                    var label = cell.append("label");
+                    label.attr("for", value);
+                    label.text(value);
+                }
+                // chkbox.attr("type", "checkbox");
+                // chkbox.attr("id", value);
                 // cell.append(chkbox)
                 // td.appendChild(chkbox);
                 // cell.append(chkbox);
-                cell.text(value);
+                // cell.text(value);
                 // cell.Object(chkbox)
             });
         });
@@ -46,13 +61,54 @@ function buildingredienttable() {
     });
 }
 
-function buildGraph() {
-    d3.json("http://127.0.0.1:5000/ingredient_count").then((data) => {
-        console.log(data)
-        var graphData = data;
-        //Create lists to collect data to graph.
-        var ingredients = [];
-        var count = [];
+var finalingredients = [];
+
+// features = [0,0,0,0,0,0,0]
+// for user_input:
+//     if user_input:
+//         features[data[user_input]] = 1
+
+// data = {
+//     "cream": 1,
+// }
+
+
+function user_selections(){
+
+    var user_selection = [];
+
+    d3.json("data/just_ingredients.json").then((data) => { 
+        var data = data;
+        // console.log(data);
+        // return data;
+
+        // var i;
+        // for (i = 0; i < data.length; i++) {
+        //     // text += cars[i] + "<br>";
+        //     console.log(i);
+        //     finalingredients.push(i);
+        // }  
+
+        // data.forEach(item => {
+        Object.entries(data).forEach(([key, value]) => {
+            var i = value;
+            finalingredients.push(i);
+        }
+        )
+
+    console.log(finalingredients);   
+
+        }
+        )}
+     
+ 
+// function buildGraph() {
+//     d3.json("http://127.0.0.1:5000/ingredient_count").then((data) => {
+//         console.log(data)
+//         var graphData = data;
+//         //Create lists to collect data to graph.
+//         var ingredients = [];
+//         var count = [];
        
         //Get data for the plots
         // for (var i = 0; i < data.length; i++) {
@@ -98,9 +154,9 @@ function buildGraph() {
         // };
         // var barData = [trace2, trace1];
         // Plotly.newPlot("bar", barData, barLayout);
-    }
-    )
-}
+//     }
+//     )
+// }
 
 
 // function optionChanged(filter_type, value) {
@@ -142,7 +198,7 @@ function init() {
 
     
         buildingredienttable();
-        buildGraph();
+        // buildGraph();
 
 
 }
