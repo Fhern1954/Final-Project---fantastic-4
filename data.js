@@ -99,6 +99,12 @@ function user_selections(){
             body: JSON.stringify(user_selection)
         }).then(data => {
             console.log("Result: " + data.result)
+
+            var body = d3.select('form')
+            body.append("input")
+                .attr('type','text')
+                .attr('name','rating')
+                .attr('value',data.result)
         });
 
     //     for (i = 0; i < data.length; i++) {
