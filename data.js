@@ -104,7 +104,7 @@ function user_selections(){
             body.append("input")
                 .attr('type','text')
                 .attr('name','rating')
-                .attr('value',data.result)
+                .attr('value', data.result)
         });
 
     //     for (i = 0; i < data.length; i++) {
